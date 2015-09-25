@@ -6,6 +6,9 @@
 	class Entity: public sf::Sprite
 	{
 		public:
+		
+	
+		
 			bool didCollideWith(Entity entity2)
 			{
 				sf::FloatRect box_sprite = (*this).getGlobalBounds();
@@ -26,5 +29,18 @@
 		
 	};
 
-
+class EntityList: public List
+{
+	public:
+		Entity *m_list [40];
+	
+		void add(Entity* address)
+		{
+			m_list[ m_index ] = address;
+			m_index++;
+			assert( m_index <= 40 );
+		}
+	
+	
+};
 #endif
